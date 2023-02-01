@@ -25,3 +25,13 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 // We declare the function  "closeModal" in the listener for the variable btnCloseModal and the variable overlay
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+// By adding document.addEventListener, we are listening for anything over the entire document
+document.addEventListener("keydown", function (event) {
+  // .key is a property from the object logged in the console
+  console.log(event.key);
+
+  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
